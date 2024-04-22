@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
+const imageSchema = new mongoose.Schema({
+    data: Buffer,
+    contentType: String,
+    url: String,  // Store URL or leave blank if binary data is used
+});
+
 const crmSchema = new mongoose.Schema({
     instagramUrl: {
         type: String,
         required: true,
         default: "https://www.instagram.com/dr_wafazaiem/"
     },
-    logoImage: {
-        data: Buffer,
-        contentType: String
-    },
-    headerImage: {
-        data: Buffer,
-        contentType: String
-    },
+    logoImage: imageSchema,
+    headerImage: imageSchema,
     address: {
         type: String,
         default: "Centre Urbain Nord, Tunis, Résidence New Tower, 2eme Etage, Cabinet B2-4"

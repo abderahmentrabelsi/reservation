@@ -41,6 +41,8 @@ app.use(cookieParser());
 app.use('/api/patient', PatientRouter);
 app.use('/reservations', reservationRoutes);
 app.use('/crm', crmRoutes);
+app.use('/images', express.static('public'));
+
 
 // Middleware to parse URL-encoded data
 app.use(express.urlencoded({ extended: true }));
